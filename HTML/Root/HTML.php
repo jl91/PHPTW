@@ -13,44 +13,10 @@ namespace HTML\Root;
  *
  * @author john-vostro
  */
-use HTML\Element\ElementInterface;
+use HTML\Element\Element;
 
-class HTML implements ElementInterface
+class HTML extends Element
 {
-    private $tag      = "html";
-    private $elements = null;
+    protected $tag = "html";
 
-    public function addElement(ElementInterface $element)
-    {
-        $this->elements[] = $element;
-    }
-
-    public function removeElement(ElementInterface $element)
-    {
-        if ($this->hasChildren()) {
-            foreach ($this->elements as $key => $currentElement) {
-                if (\spl_object_hash($element) === \spl_object_hash($currentElement)) {
-                    unset($this->elements[$key]);
-                }
-            }
-        }
-    }
-
-    public function getName()
-    {
-        return $this->tag;
-    }
-
-    public function hasChildren()
-    {
-        return (bool) count($this->elements) > 0;
-    }
-
-    public function getChildren()
-    {
-        if ($this->hasChildren()) {
-            return $this->elements;
-        }
-        return null;
-    }
 }
