@@ -12,9 +12,17 @@
  */
 
 namespace HTML\Element;
-use HTML\Element\AttributeInterface;
-interface ElementInterface extends AttributeInterface
+
+interface ElementInterface
 {
 
-    
+    public function getName();
+
+    public function addElement(ElementInterface $element);
+
+    public function removeElement(ElementInterface $element);
+
+    public function hasChildren();
+
+    public function getChildren();
 }

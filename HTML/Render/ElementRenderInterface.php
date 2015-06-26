@@ -5,16 +5,17 @@
  * and open the template in the editor.
  */
 
-namespace Html\Element;
-
 /**
  *
  * @author john-vostro
  */
-interface AttributeInterface
+
+namespace HTML\Render;
+
+use HTML\Element\ElementInterface;
+
+interface ElementRenderInterface
 {
 
-    public function addAttribute($attribute, $value);
-
-    public function removeAttribute($attribute);
+    public function render(ElementInterface $element);
 }

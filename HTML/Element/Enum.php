@@ -5,16 +5,17 @@
  * and open the template in the editor.
  */
 
-namespace Html\Element;
-
 /**
+ * Description of Enum
  *
  * @author john-vostro
  */
-interface AttributeInterface
+namespace HTML\Element;
+class Enum 
 {
+   // const OPEN_TAG = '&lt';
+   // const CLOSE_TAG = '&gt';
 
-    public function addAttribute($attribute, $value);
-
-    public function removeAttribute($attribute);
+    const OPEN_TAG = '<';
+    const CLOSE_TAG = '>';
 }
