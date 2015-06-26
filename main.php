@@ -10,5 +10,3 @@ $html2  = new HTML\DocumentMetadata\Head();
 $html->addElement($html2);
 $render = new HTML\Render\DefaultElementRender();
 $render->render($html);
-
-exit();
