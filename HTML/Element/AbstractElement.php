@@ -15,7 +15,7 @@ namespace Html\Element;
 
 use HTML\Element\ElementInterface;
 
-class Element implements ElementInterface
+abstract class AbstractElement implements ElementInterface
 {
     protected $tag      = null;
     protected $elements = null;

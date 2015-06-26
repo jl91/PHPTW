@@ -13,9 +13,9 @@ namespace HTML\Root;
  *
  * @author john-vostro
  */
-use HTML\Element\Element;
+use HTML\Element\AbstractElement;
 
-class HTML extends Element
+class HTML extends AbstractElement
 {
     protected $tag = "html";
 
