@@ -25,6 +25,7 @@ abstract class AbstractElement implements ElementInterface
     public function addElement(ElementInterface $element)
     {
         $this->elements[] = $element;
+        return $this;
     }
 
     public function removeElement(ElementInterface $element)
