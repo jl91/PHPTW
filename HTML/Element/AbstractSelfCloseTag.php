@@ -12,7 +12,7 @@ namespace HTML\Element;
  *
  * @author john-vostro
  */
-use \Html\Element\AbstractElement;
+use HTML\Element\AbstractElement;
 use HTML\Element\ElementInterface;
 use HTML\Element\ContentInterface;
 use HTML\Render\DefaultElementRender;

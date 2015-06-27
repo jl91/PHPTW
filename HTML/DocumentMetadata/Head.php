@@ -17,8 +17,5 @@ use HTML\Element\AbstractSelfCloseTag;
 class Head extends AbstractSelfCloseTag
 {
 
-    public function __construct()
-    {
-        $this->tag = 'head';
-    }
+    protected $tag = 'head';
 }
