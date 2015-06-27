@@ -43,6 +43,8 @@ $script = new \HTML\Scripting\Script();
 $script->addContent("alert();")
     ->addAttribute('type', 'javascript');
 
+//Body Tag
+$body = new \HTML\Sections\Body();
 
 $head->addElement($base)
     ->addElement($link)
@@ -53,7 +55,9 @@ $head->addElement($base)
 ;
 
 
-$html->addElement($head);
+$html->addElement($head)
+    ->addElement($body)
+;
 
 $render = new HTML\Render\DefaultElementRender();
 $render->render($html);
