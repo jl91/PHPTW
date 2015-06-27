@@ -37,12 +37,19 @@ $meta->addAttribute('charset', 'UTF-8');
 $style = new HTML\DocumentMetadata\Style();
 $style->addContent("body{background : black;}");
 
+//Script Tag
+
+$script = new \HTML\Scripting\Script();
+$script->addContent("alert();")
+    ->addAttribute('type', 'javascript');
+
 
 $head->addElement($base)
     ->addElement($link)
     ->addElement($meta)
     ->addElement($title)
     ->addElement($style)
+    ->addElement($script)
 ;
 
 
