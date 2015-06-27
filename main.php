@@ -27,8 +27,15 @@ $link->addAttribute('type', 'text/css')
     ->addAttribute('rel', 'stylesheet');
 
 
+//Meta Tag
+$meta = new HTML\DocumentMetadata\Meta();
+$meta->addAttribute('charset', 'UTF-8');
+
 $head->addElement($base)
-    ->addElement($link);
+    ->addElement($link)
+    ->addElement($meta)
+    ->addElement($title)
+;
 
 
 $html->addElement($head);
