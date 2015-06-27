@@ -31,10 +31,18 @@ $link->addAttribute('type', 'text/css')
 $meta = new HTML\DocumentMetadata\Meta();
 $meta->addAttribute('charset', 'UTF-8');
 
+
+
+//Style Tag
+$style = new HTML\DocumentMetadata\Style();
+$style->addContent("body{background : black;}");
+
+
 $head->addElement($base)
     ->addElement($link)
     ->addElement($meta)
     ->addElement($title)
+    ->addElement($style)
 ;
 
 
