@@ -17,9 +17,10 @@ use HTML\Element\ElementInterface;
 
 abstract class AbstractElement implements ElementInterface
 {
-    protected $tag        = null;
-    protected $elements   = null;
-    protected $attributes = null;
+    protected $tag              = null;
+    protected $elements         = null;
+    protected $attributes       = null;
+    protected $isSelfClosingTag = false;
 
     public function addElement(ElementInterface $element)
     {
@@ -96,5 +97,10 @@ abstract class AbstractElement implements ElementInterface
     public function hasAttribute($attribute)
     {
         return isset($this->attributes[$attribute]);
+    }
+
+    public function isSelfClosingTag()
+    {
+        return (bool) $this->isSelfClosingTag;
     }
 }

@@ -30,5 +30,5 @@ interface ElementInterface extends AttributeInterface
 
     public function hasAttributes();
 
-    
+    public function isSelfClosingTag();
 }

@@ -29,7 +29,10 @@ class DefaultElementRender implements ElementRenderInterface
                 $this->string .= $this->render($child);
             }
         }
-        $this->string .= $this->closeTag($element);
+
+        if (!$element->isSelfClosingTag()) {
+            $this->string .= $this->closeTag($element);
+        }
 
         echo $this->string;
     }

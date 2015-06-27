@@ -19,6 +19,7 @@ class Head extends AbstractElement
 
     public function __construct()
     {
-        $this->tag = 'head';
+        $this->tag              = 'head';
+        $this->isSelfClosingTag = true;
     }
 }
