@@ -18,27 +18,39 @@ use HTML\Element\Enum;
 
 class DefaultElementRender implements ElementRenderInterface
 {
+    private $string = null;
 
     public function render(ElementInterface $element)
     {
-        echo $this->openTag($element);
+        $this->string .= $this->openTag($element);
+
         if ($element->hasChildren()) {
             foreach ($element->getChildren() as $key => $child) {
-                $this->render($child);
+                $this->string .= $this->render($child);
             }
         }
-        echo $this->closeTag($element);
+        $this->string .= $this->closeTag($element);
+
+        echo $this->string;
     }
 
     private function openTag(ElementInterface $element)
     {
-        echo htmlspecialchars_decode(Enum::OPEN_TAG.$element->getName().Enum::CLOSE_TAG,
-            ENT_HTML5);
+        $attributes = null;
+
+        if ($element->hasAttributes()) {
+            foreach ($element->getAttributes() as $attribute => $value) {
+                $attributes .= " {$attribute}=\"{$value}\"";
+            }
+        }
+
+        echo htmlspecialchars_decode(Enum::OPEN_TAG.$element->getName().$attributes.Enum::CLOSE_TAG,
+            ENT_HTML5)."\r\n";
     }
 
     private function closeTag(ElementInterface $element)
     {
-        echo htmlspecialchars_decode(\PHP_EOL.Enum::OPEN_TAG.'/'.$element->getName().Enum::CLOSE_TAG,
-            ENT_HTML5);
+        echo htmlspecialchars_decode(Enum::OPEN_TAG.'/'.$element->getName().Enum::CLOSE_TAG,
+            ENT_HTML5)."\r\n";
     }
 }

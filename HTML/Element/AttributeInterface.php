@@ -5,7 +5,7 @@
  * and open the template in the editor.
  */
 
-namespace Html\Element;
+namespace HTML\Element;
 
 /**
  *
@@ -17,4 +17,12 @@ interface AttributeInterface
     public function addAttribute($attribute, $value);
 
     public function removeAttribute($attribute);
+
+    public function hasAttribute($attribute);
+
+    public function hasAttributes();
+
+    public function getAttribute($attribute);
+
+    public function getAttributes();
 }

@@ -17,8 +17,9 @@ use HTML\Element\ElementInterface;
 
 abstract class AbstractElement implements ElementInterface
 {
-    protected $tag      = null;
-    protected $elements = null;
+    protected $tag        = null;
+    protected $elements   = null;
+    protected $attributes = null;
 
     public function addElement(ElementInterface $element)
     {
@@ -52,5 +53,48 @@ abstract class AbstractElement implements ElementInterface
             return $this->elements;
         }
         return null;
+    }
+
+    public function addAttribute($attribute, $value)
+    {
+        if ($attribute != null) {
+            $this->attributes[$attribute] = $value;
+        }
+        return $this;
+    }
+
+    public function hasAttributes()
+    {
+        return count($this->attributes) > 0;
+    }
+
+    public function removeAttribute($attribute)
+    {
+        if ($this->hasAttribute($attribute)) {
+            unset($this->attributes[$attribute]);
+        }
+        return $this;
+    }
+
+    public function getAttribute($attribute)
+    {
+        if ($this->hasAttribute($attribute)) {
+            return $this->attributes[$attribute];
+        }
+
+        return null;
+    }
+
+    public function getAttributes()
+    {
+        if ($this->hasAttributes()) {
+            return $this->attributes;
+        }
+        return null;
+    }
+
+    public function hasAttribute($attribute)
+    {
+        return isset($this->attributes[$attribute]);
     }
 }

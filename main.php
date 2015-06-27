@@ -6,7 +6,8 @@ ini_set('display_errors', true);
 
 
 $html   = new HTML\Root\HTML();
-$html2  = new HTML\DocumentMetadata\Head();
-$html->addElement($html2);
+$head  = new HTML\DocumentMetadata\Head();
+$head->addAttribute('Teste', 'teste');
+$html->addElement($head);
 $render = new HTML\Render\DefaultElementRender();
 $render->render($html);

@@ -13,7 +13,9 @@
 
 namespace HTML\Element;
 
-interface ElementInterface
+use HTML\Element\AttributeInterface;
+
+interface ElementInterface extends AttributeInterface
 {
 
     public function getName();
@@ -25,4 +27,8 @@ interface ElementInterface
     public function hasChildren();
 
     public function getChildren();
+
+    public function hasAttributes();
+
+    
 }
