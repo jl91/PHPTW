@@ -12,14 +12,13 @@ namespace HTML\DocumentMetadata;
  *
  * @author desenvolvimento-01
  */
-use Html\Element\AbstractElement;
+use HTML\Element\AbstractSelfCloseTag;
 
-class Head extends AbstractElement
+class Head extends AbstractSelfCloseTag
 {
 
     public function __construct()
     {
-        $this->tag              = 'head';
-        $this->isSelfClosingTag = true;
+        $this->tag = 'head';
     }
 }

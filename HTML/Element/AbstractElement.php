@@ -36,6 +36,7 @@ abstract class AbstractElement implements ElementInterface
                 }
             }
         }
+        return $this;
     }
 
     public function getName()

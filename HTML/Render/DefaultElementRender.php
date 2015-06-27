@@ -24,8 +24,25 @@ class DefaultElementRender implements ElementRenderInterface
     {
         $this->string .= $this->openTag($element);
 
+//        echo '<pre>';
+//        print_r($element);
+//        echo '<br>';
+
+        if (
+            $element instanceof \HTML\Element\ContentInterface &&
+            $element->hasContent()
+        ) {
+            foreach ($element->getContent() as $content) {
+                if ($content instanceof ElementInterface) {
+                    echo  $this->render($content);
+                } else {
+                    echo  $content;
+                }
+            }
+        }
+
         if ($element->hasChildren()) {
-            foreach ($element->getChildren() as $key => $child) {
+            foreach ($element->getChildren() as $child) {
                 $this->string .= $this->render($child);
             }
         }
@@ -47,7 +64,7 @@ class DefaultElementRender implements ElementRenderInterface
             }
         }
 
-        echo htmlspecialchars_decode(Enum::OPEN_TAG.$element->getName().$attributes.Enum::CLOSE_TAG,
+        echo htmlspecialchars_decode(Enum::OPEN_TAG.$element->getName().\strtolower($attributes).Enum::CLOSE_TAG,
             ENT_HTML5)."\r\n";
     }
 
