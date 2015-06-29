@@ -59,6 +59,8 @@ $head->addElement($base)
 
 $body->addElement($section)
     ->addElement(new \HTML\Sections\Nav())
+    ->addElement(new \HTML\Sections\Article())
+    ->addElement(new \HTML\Sections\Aside())
 ;
 
 
