@@ -46,6 +46,9 @@ $script->addContent("alert();")
 //Body Tag
 $body = new \HTML\Sections\Body();
 
+//Section Tag
+$section = new \HTML\Sections\Section();
+
 $head->addElement($base)
     ->addElement($link)
     ->addElement($meta)
@@ -53,6 +56,8 @@ $head->addElement($base)
     ->addElement($style)
     ->addElement($script)
 ;
+
+$body->addElement($section);
 
 
 $html->addElement($head)
