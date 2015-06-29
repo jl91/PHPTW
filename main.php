@@ -57,7 +57,9 @@ $head->addElement($base)
     ->addElement($script)
 ;
 
-$body->addElement($section);
+$body->addElement($section)
+    ->addElement(new \HTML\Sections\Nav())
+;
 
 
 $html->addElement($head)
