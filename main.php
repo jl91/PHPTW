@@ -35,7 +35,7 @@ $meta->addAttribute('charset', 'UTF-8');
 
 //Style Tag
 $style = new HTML\DocumentMetadata\Style();
-$style->addContent("body{background : black;}");
+$style->addContent("body{background : lightblue;}");
 
 //Script Tag
 
@@ -70,4 +70,3 @@ $html->addElement($head)
 
 $render = new HTML\Render\DefaultElementRender();
 echo $render->render($html);
-

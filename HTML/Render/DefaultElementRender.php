@@ -60,14 +60,12 @@ class DefaultElementRender implements ElementRenderInterface
             }
         }
 
-        $this->string .= htmlspecialchars_decode(Enum::OPEN_TAG.$element->getName().\strtolower($attributes).Enum::CLOSE_TAG,
-                ENT_HTML5)."\r\n";
+        $this->string .= Enum::OPEN_TAG.$element->getName().\strtolower($attributes).Enum::CLOSE_TAG."\r\n";
     }
 
     private function closeTag(ElementInterface $element)
     {
-        $this->string .= htmlspecialchars_decode(Enum::OPEN_TAG.'/'.$element->getName().Enum::CLOSE_TAG,
-                ENT_HTML5)."\r\n";
+        $this->string .= Enum::OPEN_TAG.'/'.$element->getName().Enum::CLOSE_TAG."\r\n";
     }
 
     public function getString()
@@ -77,6 +75,6 @@ class DefaultElementRender implements ElementRenderInterface
 
     public function __toString()
     {
-        return $this->string;
+        return htmlspecialchars_decode($this->string, ENT_HTML5);
     }
 }
