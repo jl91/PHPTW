@@ -22,11 +22,7 @@ class DefaultElementRender implements ElementRenderInterface
 
     public function render(ElementInterface $element)
     {
-        $this->string .= $this->openTag($element);
-
-//        echo '<pre>';
-//        print_r($element);
-//        echo '<br>';
+        $this->openTag($element);
 
         if (
             $element instanceof \HTML\Element\ContentInterface &&
@@ -34,24 +30,24 @@ class DefaultElementRender implements ElementRenderInterface
         ) {
             foreach ($element->getContent() as $content) {
                 if ($content instanceof ElementInterface) {
-                    echo  $this->render($content);
+                    $this->render($content);
                 } else {
-                    echo  $content;
+                    $this->string .= $content;
                 }
             }
         }
 
         if ($element->hasChildren()) {
             foreach ($element->getChildren() as $child) {
-                $this->string .= $this->render($child);
+                $this->render($child);
             }
         }
 
         if (!$element->isSelfClosingTag()) {
-            $this->string .= $this->closeTag($element);
+            $this->closeTag($element);
         }
 
-        echo $this->string;
+        return $this;
     }
 
     private function openTag(ElementInterface $element)
@@ -64,13 +60,23 @@ class DefaultElementRender implements ElementRenderInterface
             }
         }
 
-        echo htmlspecialchars_decode(Enum::OPEN_TAG.$element->getName().\strtolower($attributes).Enum::CLOSE_TAG,
-            ENT_HTML5)."\r\n";
+        $this->string .= htmlspecialchars_decode(Enum::OPEN_TAG.$element->getName().\strtolower($attributes).Enum::CLOSE_TAG,
+                ENT_HTML5)."\r\n";
     }
 
     private function closeTag(ElementInterface $element)
     {
-        echo htmlspecialchars_decode(Enum::OPEN_TAG.'/'.$element->getName().Enum::CLOSE_TAG,
-            ENT_HTML5)."\r\n";
+        $this->string .= htmlspecialchars_decode(Enum::OPEN_TAG.'/'.$element->getName().Enum::CLOSE_TAG,
+                ENT_HTML5)."\r\n";
+    }
+
+    public function getString()
+    {
+        return $this->string;
+    }
+
+    public function __toString()
+    {
+        return $this->string;
     }
 }

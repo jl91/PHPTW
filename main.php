@@ -69,4 +69,5 @@ $html->addElement($head)
 ;
 
 $render = new HTML\Render\DefaultElementRender();
-$render->render($html);
+echo $render->render($html);
+
