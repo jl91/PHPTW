@@ -4,7 +4,7 @@ require "./vendor/autoload.php";
 error_reporting(E_ALL);
 ini_set('display_errors', true);
 
-use HTML;
+//use HTML;
 
 //HTML Tag
 $html = new HTML\Root\HTML();
@@ -70,3 +70,4 @@ $html->addElement($head)
 
 $render = new HTML\Render\DefaultElementRender();
 echo $render->render($html);
+
