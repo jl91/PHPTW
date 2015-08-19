@@ -5,7 +5,7 @@
  * and open the template in the editor.
  */
 
-namespace HTML\TextLevelSemantics;
+namespace HTML\Edits;
 
 /**
  * Description of Head
