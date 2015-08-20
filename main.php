@@ -71,3 +71,7 @@ $html->addElement($head)
 $render = new HTML\Render\DefaultElementRender();
 echo $render->render($html);
 
+$factory = new Factories\DefaultElementFactory();
+$div = $factory->createElement('div');
+
+echo $render->render($div);
