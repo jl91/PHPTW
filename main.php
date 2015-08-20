@@ -73,5 +73,8 @@ echo $render->render($html);
 
 $factory = new Factories\DefaultElementFactory();
 $div = $factory->createElement('div');
+$div2 = $factory->createElement('div');
+$div->addElement($div2);
+
 
 echo $render->render($div);
