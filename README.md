@@ -1,6 +1,6 @@
 # PHP TW - (Toolkit Web)
 
-###### PHPTW is a POO Style HTML Builder Based on [W3C](http://www.w3.org/TR/html-markup/elements-by-function.html) Elements especification
+###### PHPTW is a POO Style HTML Builder Based on [W3C](http://www.w3.org/TR/html-markup/elements-by-function.html) Elements specification
 
 See the examples:
 
