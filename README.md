@@ -1,6 +1,6 @@
 # PHP TW - (Toolkit Web)
 
-###### PHPTW is a POO Style HTML Builder Based on [W3C](http://www.w3.org/TR/html-markup/elements-by-function.html) Elements especification
+###### PHPTW is a OOP Style HTML Builder Based on [W3C](http://www.w3.org/TR/html-markup/elements-by-function.html) Elements especification
 
 See the examples:
 
@@ -120,7 +120,7 @@ this will output
 ```
 
 # Factories
-You can use a factory method to create yout elements
+You can use a factory method to create your elements
 
 ```php
 $factory = new Factories\DefaultElementFactory();
